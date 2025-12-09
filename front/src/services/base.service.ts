@@ -1,7 +1,7 @@
 import { ApiResponse, ApiError, RequestOptions, API_ENDPOINTS } from '@/types'
 import { Logger } from '@/lib/logger'
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api'
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://testadminback.onrender.com'
 
 export class BaseApiService {
   private static getAuthHeaders(method: string = 'GET'): HeadersInit {

@@ -25,10 +25,10 @@ export function useApi<T>(url: string) {
       }
 
       let apiUrl = url
-      if (url.startsWith('http://localhost:3001/api')) {
-        apiUrl = url.replace('http://localhost:3001/api', '/api')
-      } else if (url.startsWith('http://localhost:3001')) {
-        apiUrl = url.replace('http://localhost:3001', '/api')
+      if (url.startsWith('https://testadminback.onrender.com/api')) {
+        apiUrl = url.replace('https://testadminback.onrender.com/api', '/api')
+      } else if (url.startsWith('https://testadminback.onrender.com')) {
+        apiUrl = url.replace('https://testadminback.onrender.com', '/api')
       }
 
       const response = await fetch(apiUrl, {

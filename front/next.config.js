@@ -4,11 +4,19 @@ const nextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination: "http://localhost:3001/api/:path*",
+        destination: "https://testadminback.onrender.com/api/:path*",
       },
     ];
   },
-  // App Router is now stable in Next.js 13+, no experimental flag needed
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        pathname: '/**',
+      },
+    ],
+  },
 }
 
 module.exports = nextConfig

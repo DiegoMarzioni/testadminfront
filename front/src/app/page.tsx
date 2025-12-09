@@ -24,7 +24,7 @@ export default function HomePage() {
               <div className="relative bg-white rounded-full p-6 shadow-xl border border-slate-200">
                 <Image
                   src="https://res.cloudinary.com/dvwpxy4kh/image/upload/v1765300390/logotipo_vch7xl.png"
-                  alt="Tennis Star Logo"
+                  alt="TechGear Logo"
                   width={120}
                   height={120}
                   className="object-contain"
