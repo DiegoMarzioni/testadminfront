@@ -7,7 +7,7 @@
   "env": {
     "NEXT_PUBLIC_API_URL": {
       "description": "Backend API URL from Render",
-      "value": ""
+      "value": "https://testadminback.onrender.com"
     }
   }
 }
