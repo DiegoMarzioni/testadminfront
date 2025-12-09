@@ -68,7 +68,7 @@ function LoginForm() {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur-lg opacity-20 animate-pulse"></div>
               <div className="relative bg-white rounded-full p-4 shadow-lg border border-slate-200">
                 <Image
-                  src="/assets/logotipo.png"
+                  src="https://res.cloudinary.com/dvwpxy4kh/image/upload/v1765300390/logotipo_vch7xl.png"
                   alt="Tennis Star Logo"
                   width={80}
                   height={80}
