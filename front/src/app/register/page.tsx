@@ -7,6 +7,8 @@ import Image from 'next/image'
 import { ArrowLeft, UserPlus, Mail, Lock, User, Eye, EyeOff } from 'lucide-react'
 import toast from 'react-hot-toast'
 import { Logger } from '@/lib/logger'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 
 export default function RegisterPage() {
   const [formData, setFormData] = useState({
@@ -145,7 +147,7 @@ export default function RegisterPage() {
               </label>
               <div className="relative">
                 <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
-                <input
+                <Input
                   id="name"
                   name="name"
                   type="text"
@@ -172,7 +174,7 @@ export default function RegisterPage() {
               </label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
-                <input
+                <Input
                   id="email"
                   name="email"
                   type="email"
@@ -199,7 +201,7 @@ export default function RegisterPage() {
               </label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
-                <input
+                <Input
                   id="password"
                   name="password"
                   type={showPassword ? 'text' : 'password'}
@@ -233,7 +235,7 @@ export default function RegisterPage() {
               </label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
-                <input
+                <Input
                   id="confirmPassword"
                   name="confirmPassword"
                   type={showConfirmPassword ? 'text' : 'password'}
@@ -260,8 +262,8 @@ export default function RegisterPage() {
               )}
             </div>
 
-            {}
-            <button
+            {/* Submit Button */}
+            <Button
               type="submit"
               disabled={loading}
               className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 disabled:from-gray-400 disabled:to-gray-500 text-white py-3 px-4 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
@@ -274,7 +276,7 @@ export default function RegisterPage() {
                   <span>Crear Cuenta</span>
                 </>
               )}
-            </button>
+            </Button>
           </form>
 
           {}
