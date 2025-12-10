@@ -1,6 +1,7 @@
 import { BaseApiService } from '../base.service'
 import { LoginCredentials, LoginResponse, User, API_ENDPOINTS } from '@/types'
 import { Logger } from '@/lib/logger'
+import { CookieService } from '@/lib/cookies'
 
 export class AuthService extends BaseApiService {
   static async login(credentials: LoginCredentials): Promise<LoginResponse> {
@@ -13,8 +14,14 @@ export class AuthService extends BaseApiService {
       Logger.debug('Backend login response:', response)
 
       if (response.token && response.user) {
-        localStorage.setItem('token', response.token)
-        localStorage.setItem('user', JSON.stringify(response.user))
+        // Guardar en localStorage Y en cookies
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('token', response.token)
+          localStorage.setItem('user', JSON.stringify(response.user))
+          
+          // Guardar token en cookie para que el middleware lo pueda leer
+          CookieService.set('token', response.token, 7) // 7 días
+        }
         
         return {
           success: true,
@@ -45,17 +52,21 @@ export class AuthService extends BaseApiService {
   }
 
   static async logout(): Promise<void> {
-    
-    localStorage.removeItem('token')
-    localStorage.removeItem('user')
+    // Limpiar localStorage Y cookies
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('token')
+      localStorage.removeItem('user')
+      CookieService.remove('token')
+    }
   }
 
   static async getCurrentUser(): Promise<User | null> {
-    
     return this.getStoredUser()
   }
 
   static getStoredUser(): User | null {
+    if (typeof window === 'undefined') return null
+    
     try {
       const userData = localStorage.getItem('user')
       return userData ? JSON.parse(userData) : null
@@ -66,7 +77,13 @@ export class AuthService extends BaseApiService {
   }
 
   static getToken(): string | null {
-    return localStorage.getItem('token')
+    if (typeof window === 'undefined') return null
+    
+    // Intentar obtener de localStorage primero, luego de cookies
+    const tokenFromStorage = localStorage.getItem('token')
+    if (tokenFromStorage) return tokenFromStorage
+    
+    return CookieService.get('token')
   }
 
   static isAuthenticated(): boolean {
