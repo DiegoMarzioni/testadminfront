@@ -1,7 +1,7 @@
 import { ApiResponse, ApiError, RequestOptions, API_ENDPOINTS } from '@/types'
 import { Logger } from '@/lib/logger'
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || ''
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || '/api'
 
 export class BaseApiService {
   private static getAuthHeaders(method: string = 'GET'): HeadersInit {

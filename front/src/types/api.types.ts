@@ -26,32 +26,32 @@ export interface RequestOptions extends RequestInit {
 
 export const API_ENDPOINTS = {
   AUTH: {
-    LOGIN: '/api/auth/login',
-    LOGOUT: '/api/auth/logout',
-    ME: '/api/auth/me'
+    LOGIN: '/auth/login',
+    LOGOUT: '/auth/logout',
+    ME: '/auth/me'
   },
   PRODUCTS: {
-    BASE: '/api/products',
-    BY_ID: (id: string) => `/api/products/${id}`,
-    SEARCH: '/api/products/search'
+    BASE: '/products',
+    BY_ID: (id: string) => `/products/${id}`,
+    SEARCH: '/products/search'
   },
   CATEGORIES: {
-    BASE: '/api/categories',
-    BY_ID: (id: string) => `/api/categories/${id}`,
-    TREE: '/api/categories/tree'
+    BASE: '/categories',
+    BY_ID: (id: string) => `/categories/${id}`,
+    TREE: '/categories/tree'
   },
   BRANDS: {
-    BASE: '/api/brands',
-    BY_ID: (id: string) => `/api/brands/${id}`
+    BASE: '/brands',
+    BY_ID: (id: string) => `/brands/${id}`
   },
   DASHBOARD: {
-    STATS: '/api/dashboard/stats',
-    INVENTORY: '/api/dashboard/inventory-summary',
-    SALES: '/api/dashboard/sales',
-    TOP_PRODUCTS: '/api/dashboard/top-products'
+    STATS: '/dashboard/stats',
+    INVENTORY: '/dashboard/inventory-summary',
+    SALES: '/dashboard/sales',
+    TOP_PRODUCTS: '/dashboard/top-products'
   },
   ORDERS: {
-    BASE: '/api/orders',
-    CUSTOMERS: '/api/orders/customers/all'
+    BASE: '/orders',
+    CUSTOMERS: '/orders/customers/all'
   }
 } as const
